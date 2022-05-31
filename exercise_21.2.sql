@@ -6,4 +6,4 @@ Serve para criação de relatórios, de novas maneiras de exigir uma informaçã
 >> INNER JOIN
 
 
-UNIONS | SUBQUERIES | STORED | PROCEDURES/FUNCTIONS
+UNIONS | SUBQUERIES | STORED | PROCEDURES/FUNCTIONS 
