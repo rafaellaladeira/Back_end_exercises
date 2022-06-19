@@ -6,34 +6,34 @@ app.use(express.json()); // pra descriptografar - para todas as rotas
 
 const port = 3000;
 
-// app.get('/simpsons', async (req, res) => {
-//     try{
-//         const response = await fs.readFile('./simpsons.json', 'utf8')
-//         const data = JSON.parse(response)
-//         return res.status(201).json(data);
-//     }catch{
-//         return res.status(500).json({message : 'Something is wrong'})
-//     }
+app.get('/simpsons', async (req, res) => {
+    try{
+        const response = await fs.readFile('./simpsons.json', 'utf8')
+        const data = JSON.parse(response)
+        return res.status(201).json(data);
+    }catch{
+        return res.status(500).json({message : 'Something is wrong'})
+    }
 
-// }) 
+}) 
 
-// app.get('/simpsons/:id', async (req, res)=> {
-//     try{
-//         const {id} = req.params;
-//         const response = await fs.readFile('./simpsons.json', 'utf8');
-//         const data = JSON.parse(response);
+app.get('/simpsons/:id', async (req, res)=> {
+    try{
+        const {id} = req.params;
+        const response = await fs.readFile('./simpsons.json', 'utf8');
+        const data = JSON.parse(response);
 
-//         const findingSimpson = data.find((simpson)=>Number(simpson.id) == id);
-//         console.log(findingSimpson);
+        const findingSimpson = data.find((simpson)=>Number(simpson.id) == id);
+        console.log(findingSimpson);
 
-//         if(!findingSimpson) return res
-//                 .status(404)
-//                 .json({message: 'simpson not found'})
-//         return res.json(findingSimpson);
-//     } catch (error){
-//         return res.status(500).end();
-//     }
-// })
+        if(!findingSimpson) return res
+                .status(404)
+                .json({message: 'simpson not found'})
+        return res.json(findingSimpson);
+    } catch (error){
+        return res.status(500).end();
+    }
+})
    
 app.post('/simpsons', async (req, res)=> {
     try{
