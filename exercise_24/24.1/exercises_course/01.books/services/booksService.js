@@ -10,14 +10,13 @@ const getAll = async () => {
 
 const getById = async (id) => {
     const data = await Book.findOne({
-        where: {id: id} });
-    if ( data === 0 || undefined) throw errorObj[1];
+        where: {id} });
+    if ( data === null) throw errorObj[1];
     return data;
 };
 
 const addBook = async ({title, author, pageQuantity}) => {
     const data = await Book.create({ title, author, pageQuantity});
-    console.log(data);
     if (data) return true;
 };
 
